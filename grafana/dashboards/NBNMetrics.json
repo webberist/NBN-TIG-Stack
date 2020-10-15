@@ -736,11 +736,10 @@
     {
       "cacheTimeout": null,
       "datasource": "InfluxDB",
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "decimals": 2,
+          "decimals": 1,
           "mappings": [
             {
               "id": 0,
@@ -750,26 +749,17 @@
               "value": "null"
             }
           ],
-          "noValue": "N/A",
           "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "#299c46",
+                "color": "semi-dark-blue",
                 "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 5
-              },
-              {
-                "color": "#d44a3a",
-                "value": 10
               }
             ]
           },
-          "unit": "ms"
+          "unit": "Mbits"
         },
         "overrides": []
       },
@@ -779,10 +769,8 @@
         "x": 6,
         "y": 13
       },
-      "id": 10,
-      "interval": null,
+      "id": 5,
       "links": [],
-      "maxDataPoints": 100,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -810,15 +798,19 @@
             [
               {
                 "params": [
-                  "ping_jitter"
+                  "upload_bandwidth"
                 ],
                 "type": "field"
               },
               {
+                "params": [],
+                "type": "mean"
+              },
+              {
                 "params": [
-                  95
+                  "/ 125000"
                 ],
-                "type": "percentile"
+                "type": "math"
               }
             ]
           ],
@@ -827,7 +819,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Average Jitter",
+      "title": "Average Upstream Speed",
       "type": "stat"
     },
     {
@@ -1166,10 +1158,11 @@
     {
       "cacheTimeout": null,
       "datasource": "InfluxDB",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {},
-          "decimals": 1,
+          "decimals": 2,
           "mappings": [
             {
               "id": 0,
@@ -1179,17 +1172,26 @@
               "value": "null"
             }
           ],
+          "noValue": "N/A",
           "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-blue",
+                "color": "#299c46",
                 "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 5
+              },
+              {
+                "color": "#d44a3a",
+                "value": 10
               }
             ]
           },
-          "unit": "Mbits"
+          "unit": "ms"
         },
         "overrides": []
       },
@@ -1199,8 +1201,10 @@
         "x": 6,
         "y": 17
       },
-      "id": 5,
+      "id": 10,
+      "interval": null,
       "links": [],
+      "maxDataPoints": 100,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -1228,19 +1232,15 @@
             [
               {
                 "params": [
-                  "upload_bandwidth"
+                  "ping_jitter"
                 ],
                 "type": "field"
               },
               {
-                "params": [],
-                "type": "mean"
-              },
-              {
                 "params": [
-                  "/ 125000"
+                  95
                 ],
-                "type": "math"
+                "type": "percentile"
               }
             ]
           ],
@@ -1249,7 +1249,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Average Upstream Speed",
+      "title": "Average Jitter",
       "type": "stat"
     },
     {
@@ -4417,5 +4417,5 @@
   "timezone": "",
   "title": "NBN Metrics",
   "uid": "Al_8V8cGz",
-  "version": 20
+  "version": 23
 }
