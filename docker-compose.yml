@@ -1,0 +1,51 @@
+version: '3'
+services:
+    grafana:
+        networks:
+            - tig
+        ports:
+            - '3000:3000'
+        volumes:
+            - grafana_data:/var/lib/grafana
+            - ./grafana/provisioning/:/etc/grafana/provisioning/
+            - ./grafana/dashboards/:/var/lib/grafana/dashboards/
+        environment: 
+            - GF_AUTH_ANONYMOUS_ENABLED=true
+            - GF_USERS_DEFAULT_THEME=light
+            - GF_DATE_FORMATS_DEFAULT_TIMEZONE=browser
+            - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/NBNMetrics.json
+        container_name: grafana
+        image: grafana/grafana
+        depends_on:
+            - influxdb
+        restart: unless-stopped
+    influxdb:
+        networks:
+            - tig
+        ports:
+            - "8083:8083"
+            - "8086:8086"
+        volumes:
+            - influxdb_data:/var/lib/influxdb
+        environment:
+            - INFLUXDB_DB=telegraf
+        container_name: influxdb
+        image: influxdb:1.8
+        restart: unless-stopped
+    telegraf:
+        build: ./telegraf
+        networks:
+            - tig
+        ports:
+            - '8125:8125/udp'
+        volumes:
+            - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+        container_name: telegraf
+        depends_on:
+            - influxdb
+        restart: unless-stopped
+networks:
+    tig:
+volumes:
+    grafana_data: {}
+    influxdb_data: {}
