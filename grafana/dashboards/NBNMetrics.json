@@ -13,622 +13,13 @@
     ]
   },
   "description": "",
-  "editable": false,
+  "editable": true,
   "gnetId": 12428,
   "graphTooltip": 1,
-  "id": 3,
+  "id": 2,
+  "iteration": 1602885059062,
   "links": [],
   "panels": [
-    {
-      "aliasColors": {
-        "Downstream Bandwidth": "purple",
-        "Jitter": "yellow",
-        "Latency": "green",
-        "Recorded Jitter": "green",
-        "Recorded Speed Downstream": "purple",
-        "Recorded Speed Upstream": "blue",
-        "Upstream Bandwidth": "blue",
-        "download": "semi-dark-purple",
-        "upload": "semi-dark-blue"
-      },
-      "bars": false,
-      "cacheTimeout": null,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "InfluxDB",
-      "decimals": 0,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 12,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      },
-      "hiddenSeries": false,
-      "id": 2,
-      "interval": null,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "maxDataPoints": 3,
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:342",
-          "alias": "Upstream Bandwidth",
-          "transform": "negative-Y"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "Downstream Bandwidth",
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "download_bandwidth"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  "/ 125000"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Upstream Bandwidth",
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "upload_bandwidth"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  "/ 125000"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Speed Test Summary",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "Mbits",
-          "label": "Bandwidth",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "decimals": null,
-          "format": "ms",
-          "label": "Latency",
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "avg": "dark-green",
-        "max": "green",
-        "min": "light-green"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "InfluxDB",
-      "decimals": 0,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 1,
-      "gridPos": {
-        "h": 12,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "hiddenSeries": false,
-      "id": 51,
-      "interval": "",
-      "legend": {
-        "alignAsTable": false,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "Cloudflare DNS",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "avg_ms"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "1.1.1.1"
-            }
-          ]
-        },
-        {
-          "alias": "Sydney",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "avg_ms"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.syd1.linode.com"
-            }
-          ]
-        },
-        {
-          "alias": "Singapore",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "avg_ms"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.singapore.linode.com"
-            }
-          ]
-        },
-        {
-          "alias": "Tokyo",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "avg_ms"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.tokyo2.linode.com"
-            }
-          ]
-        },
-        {
-          "alias": "Fremont USA",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "E",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "avg_ms"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.fremont.linode.com"
-            }
-          ]
-        },
-        {
-          "alias": "London",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "F",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "avg_ms"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.london.linode.com"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [
-        {
-          "colorMode": "background6",
-          "fill": true,
-          "fillColor": "rgba(234, 112, 112, 0.12)",
-          "line": false,
-          "lineColor": "rgba(237, 46, 24, 0.60)",
-          "op": "time"
-        }
-      ],
-      "timeShift": null,
-      "title": "Latency Summery",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:228",
-          "decimals": 0,
-          "format": "ms",
-          "label": "Latency (ms)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:229",
-          "decimals": null,
-          "format": "percent",
-          "label": "Packetloss (%)",
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
     {
       "collapsed": false,
       "datasource": null,
@@ -636,7 +27,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 0
       },
       "id": 35,
       "panels": [],
@@ -665,7 +56,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "purple",
+                "color": "blue",
                 "value": null
               }
             ]
@@ -678,7 +69,7 @@
         "h": 4,
         "w": 6,
         "x": 0,
-        "y": 13
+        "y": 1
       },
       "id": 19,
       "links": [],
@@ -754,7 +145,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-blue",
+                "color": "super-light-blue",
                 "value": null
               }
             ]
@@ -767,7 +158,7 @@
         "h": 4,
         "w": 5,
         "x": 6,
-        "y": 13
+        "y": 1
       },
       "id": 5,
       "links": [],
@@ -847,7 +238,7 @@
         "h": 4,
         "w": 5,
         "x": 11,
-        "y": 13
+        "y": 1
       },
       "id": 23,
       "options": {
@@ -936,7 +327,7 @@
         "h": 4,
         "w": 5,
         "x": 16,
-        "y": 13
+        "y": 1
       },
       "id": 25,
       "options": {
@@ -1021,7 +412,7 @@
         "h": 8,
         "w": 3,
         "x": 21,
-        "y": 13
+        "y": 1
       },
       "id": 28,
       "options": {
@@ -1102,7 +493,7 @@
         "h": 4,
         "w": 6,
         "x": 0,
-        "y": 17
+        "y": 5
       },
       "id": 9,
       "interval": null,
@@ -1199,7 +590,7 @@
         "h": 4,
         "w": 5,
         "x": 6,
-        "y": 17
+        "y": 5
       },
       "id": 10,
       "interval": null,
@@ -1277,7 +668,7 @@
         "h": 4,
         "w": 5,
         "x": 11,
-        "y": 17
+        "y": 5
       },
       "id": 24,
       "options": {
@@ -1366,7 +757,7 @@
         "h": 4,
         "w": 5,
         "x": 16,
-        "y": 17
+        "y": 5
       },
       "id": 26,
       "options": {
@@ -1425,10 +816,10 @@
       },
       "fontSize": "100%",
       "gridPos": {
-        "h": 10,
+        "h": 12,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 9
       },
       "id": 12,
       "interval": "",
@@ -1608,6 +999,24 @@
           "thresholds": [],
           "type": "number",
           "unit": "short"
+        },
+        {
+          "$$hashKey": "object:924",
+          "alias": "Packetloss",
+          "align": "center",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "mappingType": 1,
+          "pattern": "Speedtest.packetLoss",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
         }
       ],
       "targets": [
@@ -1694,6 +1103,14 @@
             [
               {
                 "params": [
+                  "packetLoss"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
                   "result_url"
                 ],
                 "type": "field"
@@ -1725,582 +1142,12 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 31
+        "y": 21
       },
       "id": 33,
       "panels": [],
       "title": "Latency",
       "type": "row"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 100
-              },
-              {
-                "color": "#d44a3a",
-                "value": 150
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 0,
-        "y": 32
-      },
-      "id": 31,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "1.1.1.1"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Cloudflare DNS Average Latency",
-      "type": "stat"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 60
-              },
-              {
-                "color": "#d44a3a",
-                "value": 100
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 4,
-        "y": 32
-      },
-      "id": 36,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.syd1.linode.com"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Sydney Average Latency",
-      "type": "stat"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 150
-              },
-              {
-                "color": "#d44a3a",
-                "value": 200
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 8,
-        "y": 32
-      },
-      "id": 37,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.singapore.linode.com"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Singapore Average Latency",
-      "type": "stat"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 200
-              },
-              {
-                "color": "#d44a3a",
-                "value": 250
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 12,
-        "y": 32
-      },
-      "id": 39,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.tokyo2.linode.com"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Tokyo Average Latency",
-      "type": "stat"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 250
-              },
-              {
-                "color": "#d44a3a",
-                "value": 300
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 16,
-        "y": 32
-      },
-      "id": 40,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.fremont.linode.com"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Fremont USA Average Latency",
-      "type": "stat"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 350
-              },
-              {
-                "color": "#d44a3a",
-                "value": 400
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 32
-      },
-      "id": 41,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.london.linode.com"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "London Average Latency",
-      "type": "stat"
     },
     {
       "aliasColors": {
@@ -2324,9 +1171,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 11,
-        "w": 8,
+        "w": 12,
         "x": 0,
-        "y": 36
+        "y": 22
       },
       "hiddenSeries": false,
       "id": 53,
@@ -2346,6 +1193,7 @@
       },
       "lines": true,
       "linewidth": 1,
+      "maxPerRow": 2,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
@@ -2355,6 +1203,15 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "repeat": "PingURL",
+      "repeatDirection": "h",
+      "scopedVars": {
+        "PingURL": {
+          "selected": false,
+          "text": "1.1.1.1",
+          "value": "1.1.1.1"
+        }
+      },
       "seriesOverrides": [
         {
           "$$hashKey": "object:3810",
@@ -2414,7 +1271,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT min(\"minimum_response_ms\") FROM \"ping\" WHERE (\"url\" = '1.1.1.1') AND $timeFilter GROUP BY time($__interval), \"url\" fill(none)",
@@ -2438,8 +1295,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "1.1.1.1"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -2465,7 +1322,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -2493,8 +1350,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "1.1.1.1"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -2520,7 +1377,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -2542,8 +1399,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "1.1.1.1"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -2569,7 +1426,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -2591,8 +1448,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "1.1.1.1"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         }
@@ -2610,7 +1467,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT Cloudflare DNS",
+      "title": "IPv4 RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -2653,9 +1510,9 @@
     },
     {
       "aliasColors": {
-        "avg": "purple",
-        "max": "blue",
-        "min": "dark-blue"
+        "avg": "dark-green",
+        "max": "green",
+        "min": "light-green"
       },
       "bars": false,
       "dashLength": 10,
@@ -2673,9 +1530,369 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 11,
-        "w": 8,
-        "x": 8,
-        "y": 36
+        "w": 12,
+        "x": 12,
+        "y": 22
+      },
+      "hiddenSeries": false,
+      "id": 54,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602885059062,
+      "repeatPanelId": 53,
+      "scopedVars": {
+        "PingURL": {
+          "selected": false,
+          "text": "speedtest.fremont.linode.com",
+          "value": "speedtest.fremont.linode.com"
+        }
+      },
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:3810",
+          "alias": "min",
+          "color": "#73BF69",
+          "lines": false
+        },
+        {
+          "$$hashKey": "object:3811",
+          "alias": "avg",
+          "color": "#19730E",
+          "fill": 0,
+          "fillBelowTo": "min",
+          "linewidth": 2
+        },
+        {
+          "$$hashKey": "object:3812",
+          "alias": "max",
+          "color": "#96D98D",
+          "fillBelowTo": "min",
+          "lines": false
+        },
+        {
+          "$$hashKey": "object:3813",
+          "alias": "loss",
+          "bars": true,
+          "color": "#C4162A",
+          "lines": false,
+          "pointradius": 1,
+          "points": true,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "min",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT min(\"minimum_response_ms\") FROM \"ping\" WHERE (\"url\" = '1.1.1.1') AND $timeFilter GROUP BY time($__interval), \"url\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "minimum_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "min"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$PingURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "avg",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "average_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              },
+              {
+                "params": [
+                  "avg_ms"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$PingURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "max",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "maximum_response_ms"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$PingURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "loss",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "0"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ping",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "percent_packet_loss"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$PingURL$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [
+        {
+          "colorMode": "background6",
+          "fill": true,
+          "fillColor": "rgba(234, 112, 112, 0.12)",
+          "line": false,
+          "lineColor": "rgba(237, 46, 24, 0.60)",
+          "op": "time"
+        }
+      ],
+      "timeShift": null,
+      "title": "IPv4 RTT $PingURL",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:228",
+          "decimals": 0,
+          "format": "ms",
+          "label": "Latency (ms)",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:229",
+          "decimals": null,
+          "format": "percent",
+          "label": "Packetloss (%)",
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "avg": "dark-green",
+        "max": "green",
+        "min": "light-green"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "decimals": 0,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 55,
@@ -2695,6 +1912,7 @@
       },
       "lines": true,
       "linewidth": 1,
+      "maxPerRow": 2,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
@@ -2704,15 +1922,25 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602885059062,
+      "repeatPanelId": 53,
+      "scopedVars": {
+        "PingURL": {
+          "selected": false,
+          "text": "speedtest.london.linode.com",
+          "value": "speedtest.london.linode.com"
+        }
+      },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:4642",
+          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:4643",
+          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -2720,14 +1948,14 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:4644",
+          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:4645",
+          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -2763,7 +1991,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT min(\"minimum_response_ms\") FROM \"ping\" WHERE (\"url\" = '1.1.1.1') AND $timeFilter GROUP BY time($__interval), \"url\" fill(none)",
@@ -2787,8 +2015,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.syd1.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -2814,7 +2042,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -2842,8 +2070,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.syd1.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -2869,7 +2097,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -2891,8 +2119,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.syd1.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -2918,7 +2146,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -2940,8 +2168,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.syd1.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         }
@@ -2959,7 +2187,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT Sydney",
+      "title": "IPv4 RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -2975,7 +2203,7 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:432",
+          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -2985,7 +2213,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:433",
+          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -3002,9 +2230,9 @@
     },
     {
       "aliasColors": {
-        "avg": "purple",
-        "max": "blue",
-        "min": "dark-blue"
+        "avg": "dark-green",
+        "max": "green",
+        "min": "light-green"
       },
       "bars": false,
       "dashLength": 10,
@@ -3022,12 +2250,12 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 11,
-        "w": 8,
-        "x": 16,
-        "y": 36
+        "w": 12,
+        "x": 12,
+        "y": 33
       },
       "hiddenSeries": false,
-      "id": 61,
+      "id": 56,
       "interval": "",
       "legend": {
         "alignAsTable": true,
@@ -3044,6 +2272,7 @@
       },
       "lines": true,
       "linewidth": 1,
+      "maxPerRow": 2,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
@@ -3053,15 +2282,25 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602885059062,
+      "repeatPanelId": 53,
+      "scopedVars": {
+        "PingURL": {
+          "selected": false,
+          "text": "speedtest.singapore.linode.com",
+          "value": "speedtest.singapore.linode.com"
+        }
+      },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:5198",
+          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:5199",
+          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -3069,14 +2308,14 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:5200",
+          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:5201",
+          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -3112,7 +2351,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT min(\"minimum_response_ms\") FROM \"ping\" WHERE (\"url\" = '1.1.1.1') AND $timeFilter GROUP BY time($__interval), \"url\" fill(none)",
@@ -3136,8 +2375,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.singapore.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3163,7 +2402,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -3191,8 +2430,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.singapore.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3218,7 +2457,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -3240,8 +2479,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.singapore.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3267,7 +2506,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -3289,8 +2528,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.singapore.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         }
@@ -3308,7 +2547,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT Singapore",
+      "title": "IPv4 RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -3324,7 +2563,7 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:636",
+          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -3334,7 +2573,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:637",
+          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -3351,9 +2590,9 @@
     },
     {
       "aliasColors": {
-        "avg": "purple",
-        "max": "blue",
-        "min": "dark-blue"
+        "avg": "dark-green",
+        "max": "green",
+        "min": "light-green"
       },
       "bars": false,
       "dashLength": 10,
@@ -3371,9 +2610,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 11,
-        "w": 8,
+        "w": 12,
         "x": 0,
-        "y": 47
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 57,
@@ -3393,6 +2632,7 @@
       },
       "lines": true,
       "linewidth": 1,
+      "maxPerRow": 2,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
@@ -3402,15 +2642,25 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602885059062,
+      "repeatPanelId": 53,
+      "scopedVars": {
+        "PingURL": {
+          "selected": false,
+          "text": "speedtest.syd1.linode.com",
+          "value": "speedtest.syd1.linode.com"
+        }
+      },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:5459",
+          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:5460",
+          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -3418,14 +2668,14 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:5461",
+          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:5462",
+          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -3461,7 +2711,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT min(\"minimum_response_ms\") FROM \"ping\" WHERE (\"url\" = '1.1.1.1') AND $timeFilter GROUP BY time($__interval), \"url\" fill(none)",
@@ -3485,8 +2735,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.tokyo2.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3512,7 +2762,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -3540,8 +2790,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.tokyo2.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3567,7 +2817,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -3589,8 +2839,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.tokyo2.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3616,7 +2866,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -3638,8 +2888,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.tokyo2.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         }
@@ -3657,7 +2907,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT Tokyo",
+      "title": "IPv4 RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -3673,7 +2923,7 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:840",
+          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -3683,7 +2933,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:841",
+          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -3700,9 +2950,9 @@
     },
     {
       "aliasColors": {
-        "avg": "purple",
-        "max": "blue",
-        "min": "dark-blue"
+        "avg": "dark-green",
+        "max": "green",
+        "min": "light-green"
       },
       "bars": false,
       "dashLength": 10,
@@ -3720,12 +2970,12 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 11,
-        "w": 8,
-        "x": 8,
-        "y": 47
+        "w": 12,
+        "x": 12,
+        "y": 44
       },
       "hiddenSeries": false,
-      "id": 59,
+      "id": 58,
       "interval": "",
       "legend": {
         "alignAsTable": true,
@@ -3742,6 +2992,7 @@
       },
       "lines": true,
       "linewidth": 1,
+      "maxPerRow": 2,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
@@ -3751,15 +3002,25 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602885059062,
+      "repeatPanelId": 53,
+      "scopedVars": {
+        "PingURL": {
+          "selected": false,
+          "text": "speedtest.tokyo2.linode.com",
+          "value": "speedtest.tokyo2.linode.com"
+        }
+      },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:5720",
+          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:5721",
+          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -3767,14 +3028,14 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:5722",
+          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:5723",
+          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -3810,7 +3071,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT min(\"minimum_response_ms\") FROM \"ping\" WHERE (\"url\" = '1.1.1.1') AND $timeFilter GROUP BY time($__interval), \"url\" fill(none)",
@@ -3834,8 +3095,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.fremont.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3861,7 +3122,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -3889,8 +3150,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.fremont.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3916,7 +3177,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -3938,8 +3199,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.fremont.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         },
@@ -3965,7 +3226,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "ping_v4",
+          "measurement": "ping",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -3987,8 +3248,8 @@
           "tags": [
             {
               "key": "url",
-              "operator": "=",
-              "value": "speedtest.fremont.linode.com"
+              "operator": "=~",
+              "value": "/^$PingURL$/"
             }
           ]
         }
@@ -4006,7 +3267,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT Fremont USA",
+      "title": "IPv4 RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -4022,7 +3283,7 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1044",
+          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -4032,356 +3293,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1045",
-          "decimals": null,
-          "format": "percent",
-          "label": "Packetloss (%)",
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {
-        "avg": "purple",
-        "max": "blue",
-        "min": "dark-blue"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "InfluxDB",
-      "decimals": 0,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 11,
-        "w": 8,
-        "x": 16,
-        "y": 47
-      },
-      "hiddenSeries": false,
-      "id": 63,
-      "interval": "",
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:5981",
-          "alias": "min",
-          "color": "#73BF69",
-          "lines": false
-        },
-        {
-          "$$hashKey": "object:5982",
-          "alias": "avg",
-          "color": "#19730E",
-          "fill": 0,
-          "fillBelowTo": "min",
-          "linewidth": 2
-        },
-        {
-          "$$hashKey": "object:5983",
-          "alias": "max",
-          "color": "#96D98D",
-          "fillBelowTo": "min",
-          "lines": false
-        },
-        {
-          "$$hashKey": "object:5984",
-          "alias": "loss",
-          "bars": true,
-          "color": "#C4162A",
-          "lines": false,
-          "pointradius": 1,
-          "points": true,
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "min",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT min(\"minimum_response_ms\") FROM \"ping\" WHERE (\"url\" = '1.1.1.1') AND $timeFilter GROUP BY time($__interval), \"url\" fill(none)",
-          "rawQuery": false,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "minimum_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "min"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.london.linode.com"
-            }
-          ]
-        },
-        {
-          "alias": "avg",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "average_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "avg_ms"
-                ],
-                "type": "alias"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.london.linode.com"
-            }
-          ]
-        },
-        {
-          "alias": "max",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "maximum_response_ms"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.london.linode.com"
-            }
-          ]
-        },
-        {
-          "alias": "loss",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "url"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "0"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ping_v4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "percent_packet_loss"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "url",
-              "operator": "=",
-              "value": "speedtest.london.linode.com"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [
-        {
-          "colorMode": "background6",
-          "fill": true,
-          "fillColor": "rgba(234, 112, 112, 0.12)",
-          "line": false,
-          "lineColor": "rgba(237, 46, 24, 0.60)",
-          "op": "time"
-        }
-      ],
-      "timeShift": null,
-      "title": "IPv4 RTT London",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1248",
-          "decimals": 0,
-          "format": "ms",
-          "label": "Latency (ms)",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1249",
+          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -4402,7 +3314,39 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "tags": [],
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "InfluxDB",
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "PingURL",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM \"ping\" WITH KEY = \"url\"",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-24h",
@@ -4415,7 +3359,7 @@
     ]
   },
   "timezone": "",
-  "title": "NBN Metrics",
-  "uid": "Al_8V8cGz",
-  "version": 23
+  "title": "NBN Metrics Copy",
+  "uid": "FeSMcr5Mk",
+  "version": 14
 }
