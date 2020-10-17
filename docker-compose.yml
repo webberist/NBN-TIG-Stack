@@ -1,8 +1,6 @@
 version: '3'
 services:
     grafana:
-        networks:
-            - tig
         ports:
             - '3000:3000'
         volumes:
@@ -19,11 +17,6 @@ services:
             - influxdb
         restart: unless-stopped
     influxdb:
-        networks:
-            - tig
-        ports:
-            - "8083:8083"
-            - "8086:8086"
         volumes:
             - influxdb_data:/var/lib/influxdb
         environment:
@@ -33,18 +26,12 @@ services:
         restart: unless-stopped
     telegraf:
         build: ./telegraf
-        networks:
-            - tig
-        ports:
-            - '8125:8125/udp'
         volumes:
             - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
         container_name: telegraf
         depends_on:
             - influxdb
         restart: unless-stopped
-networks:
-    tig:
 volumes:
     grafana_data: {}
     influxdb_data: {}

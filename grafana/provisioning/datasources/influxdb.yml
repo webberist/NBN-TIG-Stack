@@ -27,8 +27,8 @@ datasources:
     isDefault: true
     # <string> json object of data that will be encrypted.
     #secureJsonData:
-      # <string> database password, if used
-      #password: "password"
+    #  # <string> database password, if used
+    #  password: ""
     version: 1
     # <bool> allow users to edit datasources from the UI.
     editable: false
