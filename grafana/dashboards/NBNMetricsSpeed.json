@@ -17,7 +17,7 @@
   "gnetId": 12428,
   "graphTooltip": 1,
   "id": 2,
-  "iteration": 1602905261648,
+  "iteration": 1602906340298,
   "links": [],
   "panels": [
     {
@@ -791,7 +791,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "$tag_server_host",
+          "alias": "Downstream: $tag_server_host",
           "groupBy": [
             {
               "params": [
@@ -816,6 +816,55 @@
               {
                 "params": [
                   "download_bandwidth"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "/ 125000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Upstream: $tag_server_host",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "server_host"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upload_bandwidth"
                 ],
                 "type": "field"
               },
@@ -1276,5 +1325,5 @@
   "timezone": "",
   "title": "NBN Metrics SpeedTest",
   "uid": "XSMFur5Mk",
-  "version": 9
+  "version": 3
 }
