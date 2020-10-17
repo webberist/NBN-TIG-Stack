@@ -17,7 +17,7 @@
   "gnetId": 12428,
   "graphTooltip": 1,
   "id": 2,
-  "iteration": 1602926642715,
+  "iteration": 1602927289331,
   "links": [],
   "panels": [
     {
@@ -1033,9 +1033,9 @@
         },
         "overrides": []
       },
-      "fontSize": "100%",
+      "fontSize": "90%",
       "gridPos": {
-        "h": 17,
+        "h": 11,
         "w": 24,
         "x": 0,
         "y": 22
@@ -1050,7 +1050,7 @@
       },
       "styles": [
         {
-          "$$hashKey": "object:310",
+          "$$hashKey": "object:304",
           "alias": "Date Time",
           "align": "auto",
           "colorMode": null,
@@ -1069,7 +1069,7 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:311",
+          "$$hashKey": "object:305",
           "alias": "Downstream Speed",
           "align": "center",
           "colorMode": null,
@@ -1088,7 +1088,7 @@
           "unit": "Mbits"
         },
         {
-          "$$hashKey": "object:312",
+          "$$hashKey": "object:306",
           "alias": "Upstream Speed",
           "align": "center",
           "colorMode": null,
@@ -1106,7 +1106,7 @@
           "unit": "Mbits"
         },
         {
-          "$$hashKey": "object:313",
+          "$$hashKey": "object:307",
           "alias": "Latency",
           "align": "center",
           "colorMode": null,
@@ -1124,7 +1124,7 @@
           "unit": "ms"
         },
         {
-          "$$hashKey": "object:314",
+          "$$hashKey": "object:308",
           "alias": "Jitter",
           "align": "center",
           "colorMode": null,
@@ -1142,7 +1142,7 @@
           "unit": "ms"
         },
         {
-          "$$hashKey": "object:315",
+          "$$hashKey": "object:309",
           "alias": "Bytes Downloaded",
           "align": "center",
           "colorMode": null,
@@ -1160,7 +1160,7 @@
           "unit": "decmbytes"
         },
         {
-          "$$hashKey": "object:316",
+          "$$hashKey": "object:310",
           "alias": "Bytes Uploaded",
           "align": "center",
           "colorMode": null,
@@ -1178,7 +1178,7 @@
           "unit": "decmbytes"
         },
         {
-          "$$hashKey": "object:317",
+          "$$hashKey": "object:311",
           "alias": "URL",
           "align": "left",
           "colorMode": null,
@@ -1202,7 +1202,7 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:318",
+          "$$hashKey": "object:312",
           "alias": "Host Mirror",
           "align": "auto",
           "colorMode": null,
@@ -1220,7 +1220,7 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:319",
+          "$$hashKey": "object:313",
           "alias": "Packetloss",
           "align": "center",
           "colorMode": null,
@@ -1238,9 +1238,9 @@
           "unit": "percent"
         },
         {
-          "$$hashKey": "object:759",
+          "$$hashKey": "object:555",
           "alias": "Company",
-          "align": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -1256,9 +1256,9 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:1058",
+          "$$hashKey": "object:864",
           "alias": "Location",
-          "align": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -1472,5 +1472,5 @@
   "timezone": "",
   "title": "NBN Metrics SpeedTest",
   "uid": "XSMFur5Mk",
-  "version": 3
+  "version": 4
 }
