@@ -17,7 +17,7 @@
   "gnetId": 12428,
   "graphTooltip": 1,
   "id": 2,
-  "iteration": 1602906340298,
+  "iteration": 1602907083451,
   "links": [],
   "panels": [
     {
@@ -755,8 +755,8 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 12,
-        "w": 24,
+        "h": 13,
+        "w": 12,
         "x": 0,
         "y": 9
       },
@@ -769,7 +769,7 @@
         "current": true,
         "max": true,
         "min": true,
-        "rightSide": true,
+        "rightSide": false,
         "show": true,
         "total": false,
         "values": true
@@ -791,7 +791,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Downstream: $tag_server_host",
+          "alias": "$tag_server_host",
           "groupBy": [
             {
               "params": [
@@ -838,9 +838,102 @@
               "value": "/^$SpeedTestURL$/"
             }
           ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Downstream Results",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "Mbits",
+          "label": "Bandwidth",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         },
         {
-          "alias": "Upstream: $tag_server_host",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 37,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "$tag_server_host",
           "groupBy": [
             {
               "params": [
@@ -893,7 +986,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Results",
+      "title": "Upstream Results",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -945,7 +1038,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 22
       },
       "id": 12,
       "interval": "",
@@ -1325,5 +1418,5 @@
   "timezone": "",
   "title": "NBN Metrics SpeedTest",
   "uid": "XSMFur5Mk",
-  "version": 3
+  "version": 5
 }
