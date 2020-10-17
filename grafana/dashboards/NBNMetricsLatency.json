@@ -16,1138 +16,164 @@
   "editable": true,
   "gnetId": 12428,
   "graphTooltip": 1,
-  "id": 2,
-  "iteration": 1602885059062,
+  "id": 1,
+  "iteration": 1602905208276,
   "links": [],
   "panels": [
     {
-      "collapsed": false,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
+      "aliasColors": {
+        "lg-syd.aussiebroadband.com.au": "dark-green"
       },
-      "id": 35,
-      "panels": [],
-      "title": "Speed Test",
-      "type": "row"
-    },
-    {
+      "bars": false,
       "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": "InfluxDB",
       "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [
-            {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
-            }
-          ],
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          },
-          "unit": "Mbits"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 0,
-        "y": 1
-      },
-      "id": 19,
-      "links": [],
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "download_bandwidth"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "/ 125000"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Average Downstream Speed",
-      "type": "stat"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [
-            {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
-            }
-          ],
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "super-light-blue",
-                "value": null
-              }
-            ]
-          },
-          "unit": "Mbits"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 6,
-        "y": 1
-      },
-      "id": 5,
-      "links": [],
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "upload_bandwidth"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "/ 125000"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Average Upstream Speed",
-      "type": "stat"
-    },
-    {
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              }
-            ]
-          },
-          "unit": "decmbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 11,
-        "y": 1
-      },
-      "id": 23,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "download_bytes"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              },
-              {
-                "params": [
-                  "/ 1048576"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Download Total  ",
-      "transformations": [
-        {
-          "id": "reduce",
-          "options": {
-            "reducers": [
-              "sum"
-            ]
-          }
-        }
-      ],
-      "type": "stat"
-    },
-    {
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 16,
-        "y": 1
-      },
-      "id": 25,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "download_elapsed"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Total Time Spent Downloading",
-      "type": "stat"
-    },
-    {
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "dark-yellow",
-                "value": 5
-              },
-              {
-                "color": "dark-orange",
-                "value": 10
-              },
-              {
-                "color": "dark-red",
-                "value": 25
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 3,
-        "x": 21,
-        "y": 1
-      },
-      "id": 28,
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "packetLoss"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Packetloss (Over Time)",
-      "type": "gauge"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 30
-              },
-              {
-                "color": "#d44a3a",
-                "value": 60
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 0,
-        "y": 5
-      },
-      "id": 9,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "ping_latency"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Average Latency",
-      "type": "stat"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [
-            {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
-            }
-          ],
-          "noValue": "N/A",
-          "nullValueMode": "connected",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 5
-              },
-              {
-                "color": "#d44a3a",
-                "value": 10
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 6,
-        "y": 5
-      },
-      "id": 10,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "ping_jitter"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  95
-                ],
-                "type": "percentile"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Average Jitter",
-      "type": "stat"
-    },
-    {
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              }
-            ]
-          },
-          "unit": "decmbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 11,
-        "y": 5
-      },
-      "id": 24,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "upload_bytes"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              },
-              {
-                "params": [
-                  "/ 1048576"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Upload Total  ",
-      "transformations": [
-        {
-          "id": "reduce",
-          "options": {
-            "reducers": [
-              "sum"
-            ]
-          }
-        }
-      ],
-      "type": "stat"
-    },
-    {
-      "datasource": "InfluxDB",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 16,
-        "y": 5
-      },
-      "id": 26,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "upload_elapsed"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Total Time Spent Uploading",
-      "type": "stat"
-    },
-    {
-      "columns": [],
-      "datasource": "InfluxDB",
       "fieldConfig": {
         "defaults": {
           "custom": {}
         },
         "overrides": []
       },
-      "fontSize": "100%",
+      "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 12,
+        "h": 13,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 0
       },
-      "id": 12,
-      "interval": "",
-      "pageSize": 10,
-      "showHeader": true,
-      "sort": {
-        "col": null,
-        "desc": false
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": null,
+        "sort": "min",
+        "sortDesc": false,
+        "total": false,
+        "values": true
       },
-      "styles": [
-        {
-          "$$hashKey": "object:158",
-          "alias": "Date Time",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm",
-          "decimals": 2,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "Time",
-          "thresholds": [],
-          "type": "date",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:159",
-          "alias": "Downstream Speed",
-          "align": "center",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "Speedtest.download_bandwidth",
-          "thresholds": [],
-          "type": "number",
-          "unit": "Mbits"
-        },
-        {
-          "$$hashKey": "object:160",
-          "alias": "Upstream Speed",
-          "align": "center",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "mappingType": 1,
-          "pattern": "Speedtest.upload_bandwidth",
-          "thresholds": [],
-          "type": "number",
-          "unit": "Mbits"
-        },
-        {
-          "$$hashKey": "object:161",
-          "alias": "Latency",
-          "align": "center",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 1,
-          "mappingType": 1,
-          "pattern": "Speedtest.ping_latency",
-          "thresholds": [],
-          "type": "number",
-          "unit": "ms"
-        },
-        {
-          "$$hashKey": "object:162",
-          "alias": "Jitter",
-          "align": "center",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 1,
-          "mappingType": 1,
-          "pattern": "Speedtest.ping_jitter",
-          "thresholds": [],
-          "type": "number",
-          "unit": "ms"
-        },
-        {
-          "$$hashKey": "object:163",
-          "alias": "Bytes Downloaded",
-          "align": "center",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "mappingType": 1,
-          "pattern": "Speedtest.download_bytes",
-          "thresholds": [],
-          "type": "number",
-          "unit": "decmbytes"
-        },
-        {
-          "$$hashKey": "object:164",
-          "alias": "Bytes Uploaded",
-          "align": "center",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "mappingType": 1,
-          "pattern": "Speedtest.upload_bytes",
-          "thresholds": [],
-          "type": "number",
-          "unit": "decmbytes"
-        },
-        {
-          "$$hashKey": "object:165",
-          "alias": "URL",
-          "align": "left",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": true,
-          "linkTargetBlank": true,
-          "linkTooltip": "",
-          "linkUrl": "${__cell:raw}",
-          "mappingType": 1,
-          "pattern": "Speedtest.result_url",
-          "preserveFormat": true,
-          "sanitize": true,
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:166",
-          "alias": "Host Mirror",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Speedtest.server_host",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:924",
-          "alias": "Packetloss",
-          "align": "center",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 1,
-          "mappingType": 1,
-          "pattern": "Speedtest.packetLoss",
-          "thresholds": [],
-          "type": "number",
-          "unit": "percent"
-        }
-      ],
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
-          "groupBy": [],
-          "measurement": "Speedtest",
-          "orderByTime": "DESC",
+          "alias": "$tag_url",
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "url"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "ping",
+          "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT max(\"average_response_ms\") FROM \"ping\" WHERE (\"url\" =~ /^$PingURL$/) AND $timeFilter GROUP BY time($__interval), \"url\" fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "download_bandwidth"
+                  "average_response_ms"
                 ],
                 "type": "field"
               },
               {
-                "params": [
-                  "/ 125000"
-                ],
-                "type": "math"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "download_bytes"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  "/ 1048576"
-                ],
-                "type": "math"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "upload_bandwidth"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  "/ 125000"
-                ],
-                "type": "math"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "upload_bytes"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [
-                  "/ 1048576"
-                ],
-                "type": "math"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "ping_latency"
-                ],
-                "type": "field"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "ping_jitter"
-                ],
-                "type": "field"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "packetLoss"
-                ],
-                "type": "field"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "result_url"
-                ],
-                "type": "field"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "server_host"
-                ],
-                "type": "field"
+                "params": [],
+                "type": "max"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "url",
+              "operator": "=~",
+              "value": "/^$PingURL$/"
+            }
+          ]
         }
       ],
+      "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
-      "title": "Results",
-      "transform": "timeseries_to_columns",
-      "transformations": [],
-      "type": "table-old"
-    },
-    {
-      "collapsed": false,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 21
+      "title": "Combined Endpoint Latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
       },
-      "id": 33,
-      "panels": [],
-      "title": "Latency",
-      "type": "row"
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "ms",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 10
+      }
     },
     {
       "aliasColors": {
@@ -1173,7 +199,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 22
+        "y": 13
       },
       "hiddenSeries": false,
       "id": 53,
@@ -1214,13 +240,11 @@
       },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -1228,14 +252,12 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -1467,7 +489,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT $PingURL",
+      "title": "RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -1483,7 +505,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -1493,7 +514,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -1532,7 +552,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 22
+        "y": 13
       },
       "hiddenSeries": false,
       "id": 54,
@@ -1563,7 +583,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1602885059062,
+      "repeatIteration": 1602905208276,
       "repeatPanelId": 53,
       "scopedVars": {
         "PingURL": {
@@ -1574,13 +594,11 @@
       },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -1588,14 +606,12 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -1827,7 +843,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT $PingURL",
+      "title": "RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -1843,7 +859,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -1853,7 +868,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -1892,7 +906,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 33
+        "y": 24
       },
       "hiddenSeries": false,
       "id": 55,
@@ -1923,7 +937,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1602885059062,
+      "repeatIteration": 1602905208276,
       "repeatPanelId": 53,
       "scopedVars": {
         "PingURL": {
@@ -1934,13 +948,11 @@
       },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -1948,14 +960,12 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -2187,7 +1197,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT $PingURL",
+      "title": "RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -2203,7 +1213,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -2213,7 +1222,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -2252,7 +1260,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 33
+        "y": 24
       },
       "hiddenSeries": false,
       "id": 56,
@@ -2283,7 +1291,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1602885059062,
+      "repeatIteration": 1602905208276,
       "repeatPanelId": 53,
       "scopedVars": {
         "PingURL": {
@@ -2294,13 +1302,11 @@
       },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -2308,14 +1314,12 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -2547,7 +1551,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT $PingURL",
+      "title": "RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -2563,7 +1567,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -2573,7 +1576,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -2612,7 +1614,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 44
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 57,
@@ -2643,7 +1645,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1602885059062,
+      "repeatIteration": 1602905208276,
       "repeatPanelId": 53,
       "scopedVars": {
         "PingURL": {
@@ -2654,13 +1656,11 @@
       },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -2668,14 +1668,12 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -2907,7 +1905,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT $PingURL",
+      "title": "RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -2923,7 +1921,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -2933,7 +1930,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -2972,7 +1968,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 44
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 58,
@@ -3003,7 +1999,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1602885059062,
+      "repeatIteration": 1602905208276,
       "repeatPanelId": 53,
       "scopedVars": {
         "PingURL": {
@@ -3014,13 +2010,11 @@
       },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:3810",
           "alias": "min",
           "color": "#73BF69",
           "lines": false
         },
         {
-          "$$hashKey": "object:3811",
           "alias": "avg",
           "color": "#19730E",
           "fill": 0,
@@ -3028,14 +2022,12 @@
           "linewidth": 2
         },
         {
-          "$$hashKey": "object:3812",
           "alias": "max",
           "color": "#96D98D",
           "fillBelowTo": "min",
           "lines": false
         },
         {
-          "$$hashKey": "object:3813",
           "alias": "loss",
           "bars": true,
           "color": "#C4162A",
@@ -3267,7 +2259,7 @@
         }
       ],
       "timeShift": null,
-      "title": "IPv4 RTT $PingURL",
+      "title": "RTT $PingURL",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -3283,7 +2275,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:228",
           "decimals": 0,
           "format": "ms",
           "label": "Latency (ms)",
@@ -3293,7 +2284,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:229",
           "decimals": null,
           "format": "percent",
           "label": "Packetloss (%)",
@@ -3312,7 +2302,12 @@
   "refresh": "30m",
   "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "Latency",
+    "Packetloss",
+    "Ping",
+    "Uptime"
+  ],
   "templating": {
     "list": [
       {
@@ -3359,7 +2354,7 @@
     ]
   },
   "timezone": "",
-  "title": "NBN Metrics",
+  "title": "NBN Metrics Latency",
   "uid": "FeSMcr5Mk",
-  "version": 14
+  "version": 6
 }
