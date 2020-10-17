@@ -1050,7 +1050,6 @@
       },
       "styles": [
         {
-          "$$hashKey": "object:304",
           "alias": "Date Time",
           "align": "auto",
           "colorMode": null,
@@ -1069,7 +1068,6 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:305",
           "alias": "Downstream Speed",
           "align": "center",
           "colorMode": null,
@@ -1088,7 +1086,6 @@
           "unit": "Mbits"
         },
         {
-          "$$hashKey": "object:306",
           "alias": "Upstream Speed",
           "align": "center",
           "colorMode": null,
@@ -1106,7 +1103,6 @@
           "unit": "Mbits"
         },
         {
-          "$$hashKey": "object:307",
           "alias": "Latency",
           "align": "center",
           "colorMode": null,
@@ -1124,7 +1120,6 @@
           "unit": "ms"
         },
         {
-          "$$hashKey": "object:308",
           "alias": "Jitter",
           "align": "center",
           "colorMode": null,
@@ -1142,7 +1137,6 @@
           "unit": "ms"
         },
         {
-          "$$hashKey": "object:309",
           "alias": "Bytes Downloaded",
           "align": "center",
           "colorMode": null,
@@ -1160,7 +1154,6 @@
           "unit": "decmbytes"
         },
         {
-          "$$hashKey": "object:310",
           "alias": "Bytes Uploaded",
           "align": "center",
           "colorMode": null,
@@ -1178,7 +1171,6 @@
           "unit": "decmbytes"
         },
         {
-          "$$hashKey": "object:311",
           "alias": "URL",
           "align": "left",
           "colorMode": null,
@@ -1202,7 +1194,6 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:312",
           "alias": "Host Mirror",
           "align": "auto",
           "colorMode": null,
@@ -1220,7 +1211,6 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:313",
           "alias": "Packetloss",
           "align": "center",
           "colorMode": null,
@@ -1238,25 +1228,6 @@
           "unit": "percent"
         },
         {
-          "$$hashKey": "object:555",
-          "alias": "Company",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Speedtest.server_name",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:864",
           "alias": "Location",
           "align": "auto",
           "colorMode": null,
@@ -1374,14 +1345,6 @@
             [
               {
                 "params": [
-                  "server_name"
-                ],
-                "type": "field"
-              }
-            ],
-            [
-              {
-                "params": [
                   "server_location"
                 ],
                 "type": "field"
@@ -1472,5 +1435,5 @@
   "timezone": "",
   "title": "NBN Metrics SpeedTest",
   "uid": "XSMFur5Mk",
-  "version": 4
+  "version": 1
 }
