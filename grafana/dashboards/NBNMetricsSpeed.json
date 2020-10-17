@@ -17,7 +17,7 @@
   "gnetId": 12428,
   "graphTooltip": 1,
   "id": 2,
-  "iteration": 1602907083451,
+  "iteration": 1602914847668,
   "links": [],
   "panels": [
     {
@@ -1050,6 +1050,7 @@
       },
       "styles": [
         {
+          "$$hashKey": "object:310",
           "alias": "Date Time",
           "align": "auto",
           "colorMode": null,
@@ -1068,6 +1069,7 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:311",
           "alias": "Downstream Speed",
           "align": "center",
           "colorMode": null,
@@ -1086,6 +1088,7 @@
           "unit": "Mbits"
         },
         {
+          "$$hashKey": "object:312",
           "alias": "Upstream Speed",
           "align": "center",
           "colorMode": null,
@@ -1103,6 +1106,7 @@
           "unit": "Mbits"
         },
         {
+          "$$hashKey": "object:313",
           "alias": "Latency",
           "align": "center",
           "colorMode": null,
@@ -1120,6 +1124,7 @@
           "unit": "ms"
         },
         {
+          "$$hashKey": "object:314",
           "alias": "Jitter",
           "align": "center",
           "colorMode": null,
@@ -1137,6 +1142,7 @@
           "unit": "ms"
         },
         {
+          "$$hashKey": "object:315",
           "alias": "Bytes Downloaded",
           "align": "center",
           "colorMode": null,
@@ -1154,6 +1160,7 @@
           "unit": "decmbytes"
         },
         {
+          "$$hashKey": "object:316",
           "alias": "Bytes Uploaded",
           "align": "center",
           "colorMode": null,
@@ -1171,6 +1178,7 @@
           "unit": "decmbytes"
         },
         {
+          "$$hashKey": "object:317",
           "alias": "URL",
           "align": "left",
           "colorMode": null,
@@ -1194,6 +1202,7 @@
           "unit": "short"
         },
         {
+          "$$hashKey": "object:318",
           "alias": "Host Mirror",
           "align": "auto",
           "colorMode": null,
@@ -1207,10 +1216,11 @@
           "mappingType": 1,
           "pattern": "Speedtest.server_host",
           "thresholds": [],
-          "type": "number",
+          "type": "string",
           "unit": "short"
         },
         {
+          "$$hashKey": "object:319",
           "alias": "Packetloss",
           "align": "center",
           "colorMode": null,
@@ -1226,6 +1236,42 @@
           "thresholds": [],
           "type": "number",
           "unit": "percent"
+        },
+        {
+          "$$hashKey": "object:759",
+          "alias": "Company",
+          "align": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Speedtest.server_name",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1058",
+          "alias": "Location",
+          "align": "",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Speedtest.server_location",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
         }
       ],
       "targets": [
@@ -1340,6 +1386,14 @@
                 ],
                 "type": "field"
               }
+            ],
+            [
+              {
+                "params": [
+                  "server_host"
+                ],
+                "type": "field"
+              }
             ]
           ],
           "tags": [
@@ -1418,5 +1472,5 @@
   "timezone": "",
   "title": "NBN Metrics SpeedTest",
   "uid": "XSMFur5Mk",
-  "version": 5
+  "version": 2
 }
