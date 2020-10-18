@@ -17,7 +17,7 @@
   "gnetId": 12428,
   "graphTooltip": 1,
   "id": 2,
-  "iteration": 1602927289331,
+  "iteration": 1602988553893,
   "links": [],
   "panels": [
     {
@@ -741,28 +741,56 @@
       "type": "stat"
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Downstream Bandwidth": "blue",
+        "Jitter": "yellow",
+        "Latency": "green",
+        "Recorded Jitter": "green",
+        "Recorded Speed Downstream": "purple",
+        "Recorded Speed Upstream": "blue",
+        "Upstream Bandwidth": "super-light-blue",
+        "download": "semi-dark-purple",
+        "upload": "semi-dark-blue"
+      },
       "bars": false,
+      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
       "datasource": "InfluxDB",
+      "decimals": 0,
+      "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
         "overrides": []
       },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 13,
+        "h": 11,
         "w": 12,
         "x": 0,
         "y": 9
       },
       "hiddenSeries": false,
-      "id": 36,
-      "interval": "",
+      "id": 2,
+      "interval": null,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -775,7 +803,10 @@
         "values": true
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 2,
       "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
@@ -785,27 +816,36 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "repeat": "SpeedTestURL",
+      "repeatDirection": "h",
+      "scopedVars": {
+        "SpeedTestURL": {
+          "selected": false,
+          "text": "lon.host.speedtest.net",
+          "value": "lon.host.speedtest.net"
+        }
+      },
+      "seriesOverrides": [
+        {
+          "alias": "Latency",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        },
+        {
+          "alias": "Jitter",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "alias": "$tag_server_host",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "server_host"
-              ],
-              "type": "tag"
-            }
-          ],
+          "alias": "Downstream Bandwidth",
+          "groupBy": [],
           "measurement": "Speedtest",
           "orderByTime": "ASC",
           "policy": "default",
@@ -820,10 +860,6 @@
                 "type": "field"
               },
               {
-                "params": [],
-                "type": "mean"
-              },
-              {
                 "params": [
                   "/ 125000"
                 ],
@@ -838,116 +874,10 @@
               "value": "/^$SpeedTestURL$/"
             }
           ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Downstream Results",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transformations": [],
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "Mbits",
-          "label": "Bandwidth",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
         },
         {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "InfluxDB",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 13,
-        "w": 12,
-        "x": 12,
-        "y": 9
-      },
-      "hiddenSeries": false,
-      "id": 37,
-      "interval": "",
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_server_host",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "server_host"
-              ],
-              "type": "tag"
-            }
-          ],
+          "alias": "Upstream Bandwidth",
+          "groupBy": [],
           "measurement": "Speedtest",
           "orderByTime": "ASC",
           "policy": "default",
@@ -962,14 +892,62 @@
                 "type": "field"
               },
               {
-                "params": [],
-                "type": "mean"
-              },
-              {
                 "params": [
                   "/ 125000"
                 ],
                 "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Jitter",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_jitter"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Latency",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_latency"
+                ],
+                "type": "field"
               }
             ]
           ],
@@ -986,13 +964,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Upstream Results",
+      "title": "$SpeedTestURL",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transformations": [],
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -1003,6 +980,7 @@
       },
       "yaxes": [
         {
+          "decimals": 0,
           "format": "Mbits",
           "label": "Bandwidth",
           "logBase": 1,
@@ -1011,8 +989,801 @@
           "show": true
         },
         {
-          "format": "short",
-          "label": null,
+          "decimals": null,
+          "format": "ms",
+          "label": "Latency",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Downstream Bandwidth": "blue",
+        "Jitter": "yellow",
+        "Latency": "green",
+        "Recorded Jitter": "green",
+        "Recorded Speed Downstream": "purple",
+        "Recorded Speed Upstream": "blue",
+        "Upstream Bandwidth": "super-light-blue",
+        "download": "semi-dark-purple",
+        "upload": "semi-dark-blue"
+      },
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "decimals": 0,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 36,
+      "interval": null,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602988553893,
+      "repeatPanelId": 2,
+      "scopedVars": {
+        "SpeedTestURL": {
+          "selected": false,
+          "text": "losangeles.ca.speedtest.frontier.com",
+          "value": "losangeles.ca.speedtest.frontier.com"
+        }
+      },
+      "seriesOverrides": [
+        {
+          "alias": "Latency",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        },
+        {
+          "alias": "Jitter",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Downstream Bandwidth",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "download_bandwidth"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "/ 125000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Upstream Bandwidth",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upload_bandwidth"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "/ 125000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Jitter",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_jitter"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Latency",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_latency"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$SpeedTestURL",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "Mbits",
+          "label": "Bandwidth",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "ms",
+          "label": "Latency",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Downstream Bandwidth": "blue",
+        "Jitter": "yellow",
+        "Latency": "green",
+        "Recorded Jitter": "green",
+        "Recorded Speed Downstream": "purple",
+        "Recorded Speed Upstream": "blue",
+        "Upstream Bandwidth": "super-light-blue",
+        "download": "semi-dark-purple",
+        "upload": "semi-dark-blue"
+      },
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "decimals": 0,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 37,
+      "interval": null,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602988553893,
+      "repeatPanelId": 2,
+      "scopedVars": {
+        "SpeedTestURL": {
+          "selected": false,
+          "text": "speedtest.myrepublic.com.sg",
+          "value": "speedtest.myrepublic.com.sg"
+        }
+      },
+      "seriesOverrides": [
+        {
+          "alias": "Latency",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        },
+        {
+          "alias": "Jitter",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Downstream Bandwidth",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "download_bandwidth"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "/ 125000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Upstream Bandwidth",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upload_bandwidth"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "/ 125000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Jitter",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_jitter"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Latency",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_latency"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$SpeedTestURL",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "Mbits",
+          "label": "Bandwidth",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "ms",
+          "label": "Latency",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Downstream Bandwidth": "blue",
+        "Jitter": "yellow",
+        "Latency": "green",
+        "Recorded Jitter": "green",
+        "Recorded Speed Downstream": "purple",
+        "Recorded Speed Upstream": "blue",
+        "Upstream Bandwidth": "super-light-blue",
+        "download": "semi-dark-purple",
+        "upload": "semi-dark-blue"
+      },
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "decimals": 0,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 38,
+      "interval": null,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "repeatIteration": 1602988553893,
+      "repeatPanelId": 2,
+      "scopedVars": {
+        "SpeedTestURL": {
+          "selected": false,
+          "text": "syd1.speedtest.telstra.net",
+          "value": "syd1.speedtest.telstra.net"
+        }
+      },
+      "seriesOverrides": [
+        {
+          "alias": "Latency",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        },
+        {
+          "alias": "Jitter",
+          "fill": 0,
+          "linewidth": 1,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Downstream Bandwidth",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "download_bandwidth"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "/ 125000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Upstream Bandwidth",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "upload_bandwidth"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "/ 125000"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Jitter",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_jitter"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        },
+        {
+          "alias": "Latency",
+          "groupBy": [],
+          "measurement": "Speedtest",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ping_latency"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "server_host",
+              "operator": "=~",
+              "value": "/^$SpeedTestURL$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "$SpeedTestURL",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "Mbits",
+          "label": "Bandwidth",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "ms",
+          "label": "Latency",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -1038,7 +1809,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 31
       },
       "id": 12,
       "interval": "",
