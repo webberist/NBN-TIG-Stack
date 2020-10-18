@@ -12,7 +12,7 @@ A docker compose for NBN Users to make a TIG stack.
    - [MacOS](https://docs.docker.com/docker-for-mac/install/)
    - [Windows](https://docs.docker.com/docker-for-windows/install/)
 2. Download and extract the Repository eg: `wget https://github.com/ChrisRiddell/NBN-TIG-Stack/archive/main.zip && unzip NBN-TIG-Stack-main.zip`
-3. Change to the NBN-TIG-Stack-main directory eg: `cd NBN-TIG-Stack`
+3. Change to the NBN-TIG-Stack-main directory eg: `cd NBN-TIG-Stack-main`
 4. Run the following commands
    - `docker-compose build`
    - `docker-compose pull`
