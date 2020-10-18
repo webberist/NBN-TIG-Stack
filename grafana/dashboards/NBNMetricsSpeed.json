@@ -17,7 +17,7 @@
   "gnetId": 12428,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1602988553894,
+  "iteration": 1603007660858,
   "links": [],
   "panels": [
     {
@@ -805,7 +805,6 @@
       "lines": true,
       "linewidth": 2,
       "links": [],
-      "maxDataPoints": 3,
       "maxPerRow": 2,
       "nullPointMode": "connected",
       "options": {
