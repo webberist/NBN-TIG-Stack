@@ -1368,7 +1368,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
-        "label": null,
+        "label": "Speed Test Server",
         "multi": true,
         "name": "SpeedTestURL",
         "options": [],
