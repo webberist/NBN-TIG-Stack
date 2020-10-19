@@ -17,23 +17,9 @@
   "gnetId": 12428,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1603018052053,
+  "iteration": 1603105527550,
   "links": [],
   "panels": [
-    {
-      "collapsed": false,
-      "datasource": "InfluxDB",
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 35,
-      "panels": [],
-      "title": "Speed Test",
-      "type": "row"
-    },
     {
       "cacheTimeout": null,
       "datasource": "InfluxDB",
@@ -61,7 +47,7 @@
         "h": 4,
         "w": 5,
         "x": 0,
-        "y": 1
+        "y": 0
       },
       "id": 19,
       "links": [],
@@ -148,7 +134,7 @@
         "h": 4,
         "w": 5,
         "x": 5,
-        "y": 1
+        "y": 0
       },
       "id": 5,
       "links": [],
@@ -234,7 +220,7 @@
         "h": 4,
         "w": 5,
         "x": 10,
-        "y": 1
+        "y": 0
       },
       "id": 23,
       "options": {
@@ -329,7 +315,7 @@
         "h": 4,
         "w": 5,
         "x": 15,
-        "y": 1
+        "y": 0
       },
       "id": 24,
       "options": {
@@ -436,7 +422,7 @@
         "h": 8,
         "w": 4,
         "x": 20,
-        "y": 1
+        "y": 0
       },
       "id": 28,
       "options": {
@@ -523,7 +509,7 @@
         "h": 4,
         "w": 6,
         "x": 0,
-        "y": 5
+        "y": 4
       },
       "id": 10,
       "interval": null,
@@ -605,7 +591,7 @@
         "h": 4,
         "w": 7,
         "x": 6,
-        "y": 5
+        "y": 4
       },
       "id": 25,
       "options": {
@@ -684,7 +670,7 @@
         "h": 4,
         "w": 7,
         "x": 13,
-        "y": 5
+        "y": 4
       },
       "id": 26,
       "options": {
@@ -784,7 +770,7 @@
         "h": 11,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 8
       },
       "hiddenSeries": false,
       "id": 2,
@@ -1007,7 +993,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 31
+        "y": 30
       },
       "id": 12,
       "interval": "",
@@ -1396,5 +1382,5 @@
   "timezone": "",
   "title": "NBN Metrics Speed Test",
   "uid": "XSMFur5Mk",
-  "version": 1
+  "version": 2
 }
