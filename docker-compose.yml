@@ -1,6 +1,7 @@
 version: '3'
 services:
     grafana:
+        env_file: configuration.env
         ports:
             - '3000:3000'
         volumes:
@@ -8,7 +9,6 @@ services:
             - ./grafana/provisioning/:/etc/grafana/provisioning/
             - ./grafana/dashboards/:/etc/grafana/dashboards/
         environment:
-            - GF_USERS_DEFAULT_THEME=light
             - GF_DATE_FORMATS_DEFAULT_TIMEZONE=browser
             - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/dashboards/Home.json
         container_name: grafana
@@ -26,6 +26,7 @@ services:
         restart: unless-stopped
     telegraf:
         build: ./telegraf
+        env_file: configuration.env
         volumes:
             - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
         container_name: telegraf

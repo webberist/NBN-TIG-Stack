@@ -12,7 +12,7 @@ A docker compose for NBN Users to make a TIG stack.
    - [MacOS](https://docs.docker.com/docker-for-mac/install/)
    - [Windows](https://docs.docker.com/docker-for-windows/install/)
 2. Download and extract the Repository eg: `wget https://github.com/ChrisRiddell/NBN-TIG-Stack/archive/lite.zip && unzip lite.zip`
-3. Edit `./telegraf/telegraf.conf` change line 109 from `urls = ["[GATEWAY_IP]",` to your gateway/router IP address eg: `urls = ["192.168.1.1",`
+3. Edit `./configuration.env`
 4. Change to the NBN-TIG-Stack-lite directory in a shell/terminal eg: `cd NBN-TIG-Stack-lite`
 5. Run the following commands
    - `docker-compose build`
