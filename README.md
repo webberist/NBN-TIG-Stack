@@ -6,7 +6,7 @@ A docker compose for NBN Users to make a TIG stack.
 #### TODO finish documentation
 
 1. Install Docker
-   - [Debain](https://docs.docker.com/engine/install/debian/)
+   - [Debian](https://docs.docker.com/engine/install/debian/)
    - [CentOS](https://docs.docker.com/engine/install/centos/)
    - [Fedora](https://docs.docker.com/engine/install/fedora/)
    - [MacOS](https://docs.docker.com/docker-for-mac/install/)
